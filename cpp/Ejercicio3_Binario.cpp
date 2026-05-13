@@ -12,7 +12,15 @@ struct Nodo {
 
 int calcularAltura(Nodo* raiz) {
     // TODO: Implementa tu lógica aquí
-    return 0;
+
+    // árbol vacío tiene altura 0
+    if (raiz == nullptr) return 0;
+
+    // calculo la altura de cada subárbol y me quedo con el mayor
+    int alturaIzq = calcularAltura(raiz->izquierdo);
+    int alturaDer = calcularAltura(raiz->derecho);
+
+    return 1 + max(alturaIzq, alturaDer);
 }
 
 int main() {

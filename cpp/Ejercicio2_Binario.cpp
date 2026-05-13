@@ -10,6 +10,27 @@ struct Nodo {
 
 Nodo* insertar(Nodo* raiz, int valor) {
     // TODO: Implementa tu lógica aquí
+
+    // bajo por el árbol hasta encontrar dónde insertar
+    Nodo* actual = raiz;
+    while (actual != nullptr) {
+        if (valor < actual->valor) {
+            // va a la izquierda
+            if (actual->izquierdo == nullptr) {
+                actual->izquierdo = new Nodo(valor); // inserto aquí
+                break;
+            }
+            actual = actual->izquierdo;
+        } else {
+            // va a la derecha
+            if (actual->derecho == nullptr) {
+                actual->derecho = new Nodo(valor); // inserto aquí
+                break;
+            }
+            actual = actual->derecho;
+        }
+    }
+
     return raiz;
 }
 
