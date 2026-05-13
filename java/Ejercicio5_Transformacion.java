@@ -1,6 +1,25 @@
+class Nodo {
+    int valor;
+    Nodo izquierdo, derecho;
+    Nodo(int valor) { this.valor = valor; }
+}
+
 public class Ejercicio5_Transformacion {
     public static Nodo invertir(Nodo raiz) {
         // TODO: Implementa tu lógica aquí
+
+        // si el nodo es null, no hay nada que invertir
+        if (raiz == null) return null;
+
+        // swap: intercambio el hijo izquierdo y el derecho
+        Nodo temp = raiz.izquierdo;
+        raiz.izquierdo = raiz.derecho;
+        raiz.derecho = temp;
+
+        // repito lo mismo en los subárboles
+        invertir(raiz.izquierdo);
+        invertir(raiz.derecho);
+
         return raiz;
     }
 
